@@ -1,0 +1,39 @@
+[
+    {
+        "id": 0,
+        "name": "Sélectionnez un jeu de données",
+        "url": "",
+	"sample":""
+    },
+    {
+        "id": 0,
+        "name": "Stations Vélov (disponibilité temps réel)",
+        "url": "http://data.grandlyon.com/equipements/station-vflov-disponibilitfs-temps-rfel/",
+	"sample":"https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&maxfeatures=30&request=GetFeature&typename=jcd_jcdecaux.jcdvelov"
+    },
+    {
+        "id": 0,
+        "name": "Aménagement cyclable",
+        "url": "http://data.grandlyon.com/equipements/station-vflov-disponibilitfs-temps-rfel/",
+	"sample":"https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&maxfeatures=30&request=GetFeature&typename=jcd_jcdecaux.jcdvelov"
+    },
+    {
+        "id": 0,
+        "name": "Tronçon de la trame viaire (voies et adresses)",
+        "url": "http://data.grandlyon.com/equipements/station-vflov-disponibilitfs-temps-rfel/",
+	"sample":"https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&maxfeatures=30&request=GetFeature&typename=jcd_jcdecaux.jcdvelov"
+    },
+    {
+        "id": 0,
+        "name": "Point d'intérêt touristique",
+        "url": "http://data.grandlyon.com/equipements/station-vflov-disponibilitfs-temps-rfel/",
+	"sample":"https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&maxfeatures=30&request=GetFeature&typename=jcd_jcdecaux.jcdvelov"
+    },
+    {
+        "id": 0,
+        "name": "Commune du Grand Lyon (voies et adresses)",
+        "url": "http://data.grandlyon.com/equipements/station-vflov-disponibilitfs-temps-rfel/",
+	"sample":"https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&maxfeatures=30&request=GetFeature&typename=jcd_jcdecaux.jcdvelov"
+    }
+]
+
