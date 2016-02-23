@@ -42,8 +42,7 @@ $(document).ready(function() {
            //
            // Sample 30 items
            //
-	   var iframe_map = '<br><iframe width="600px" height="300px" frameBorder="0" src="https://umap.openstreetmap.fr/fr/map/datalyon2osm_72010?datalayers=' +  $("#setData option:selected").val() + '&scaleControl=false&miniMap=true&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=false&datalayersControl=false&onLoadPanel=undefined&captionBar=false"></iframe><p><a href="https://umap.openstreetmap.fr/fr/map/datalyon2osm_71781" target="_blank">Voir en plein écran</a></p>'; // &maxfeatures=30
-
+	   var iframe_map = '<br><iframe width="600px" height="300px" frameBorder="0" src="https://umap.openstreetmap.fr/fr/map/datalyon2osm_72010?datalayers=' +  $("#setData option:selected").val() + '&scaleControl=false&miniMap=true&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=false&datalayersControl=false&onLoadPanel=undefined&captionBar=false"></iframe>';
 	   $('#iframe').empty();
 	   $('#iframetitle').empty();
 	   $('#iframetitle').append("<h2>1. Échantillon de trente éléments</h2>");	

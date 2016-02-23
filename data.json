@@ -8,7 +8,7 @@
     {
         "id": 167278,
         "name": "Station Vélov",
-        "url": "http://data.grandlyon.com/equipements/station-vflov-disponibilitfs-temps-rfel",
+        "url": "http://data.grandlyon.com/equipements/station-vflov-disponibilitfs-temps-rfel/",
 	"sample":"https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=jcd_jcdecaux.jcdvelov"
     },
     {
