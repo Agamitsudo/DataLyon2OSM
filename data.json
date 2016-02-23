@@ -1,14 +1,14 @@
 [
     {
         "id": 0,
-        "name": "Sélectionnez un jeu de données",
+        "name": "Sélection un jeu de données",
         "url": "",
 	"sample":""
     },
     {
         "id": 167278,
         "name": "Station Vélov",
-        "url": "http://data.grandlyon.com/localisation/amfnagement-cyclable/",
+        "url": "http://data.grandlyon.com/equipements/station-vflov-disponibilitfs-temps-rfel/",
 	"sample":"https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&maxfeatures=30&request=GetFeature&typename=jcd_jcdecaux.jcdvelov"
     },
     {
