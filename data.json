@@ -1,20 +1,20 @@
 [
     {
         "id": 0,
-        "name": "Sélection un jeu de données",
+        "name": "Sélection d'un jeu de données",
         "url": "",
 	"sample":""
     },
     {
         "id": 167278,
         "name": "Station Vélov",
-        "url": "http://data.grandlyon.com/equipements/station-vflov-disponibilitfs-temps-rfel/",
+        "url": "http://data.grandlyon.com/equipements/station-vflov-disponibilitfs-temps-rfel",
 	"sample":"https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=jcd_jcdecaux.jcdvelov"
     },
     {
         "id": 167300,
         "name": "Aménagement cyclable",
-        "url": "http://data.grandlyon.com/equipements/station-vflov-disponibilitfs-temps-rfel/",
+        "url": "http://data.grandlyon.com/localisation/amfnagement-cyclable/",
 	"sample":"https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=pvo_patrimoine_voirie.pvoamenagementcyclable"
     },
     {
