@@ -45,7 +45,7 @@ $(document).ready(function() {
 	   var iframe_map = '<br><iframe width="600px" height="300px" frameBorder="0" src="https://umap.openstreetmap.fr/fr/map/datalyon2osm_72010?datalayers=' +  $("#setData option:selected").val() + '&scaleControl=false&miniMap=true&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=false&datalayersControl=false&onLoadPanel=undefined&captionBar=false"></iframe>';
 	   $('#iframe').empty();
 	   $('#iframetitle').empty();
-	   $('#iframetitle').append("<h2>1. Échantillon de trente éléments</h2>");	
+	   $('#iframetitle').append("<h1>1. Échantillon de trente éléments</h1>");	
  	   $('#iframe').append(iframe_map);
 	   $('#iframe').append('<p><a href="' + element.url + '" target="_blank">Descriptif du jeu de données</a></p>');
 
