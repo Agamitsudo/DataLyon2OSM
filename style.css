@@ -1,7 +1,8 @@
-.mycssclass {
-	margin:0px;padding:0px;
+.osmclass {
+	margin:0px;padding:0px;a
 	width:100%;
-	border:1px solid #b5a8a8;
+	box-shadow: 10px 10px 5px #8a88888;
+	border:1px solid #000000;
 	
 	-moz-border-radius-bottomleft:0px;
 	-webkit-border-bottom-left-radius:0px;
@@ -18,77 +19,77 @@
 	-moz-border-radius-topleft:0px;
 	-webkit-border-top-left-radius:0px;
 	border-top-left-radius:0px;
-}.mycssclass table{
+}.osmclass table{
     border-collapse: collapse;
         border-spacing: 0;
 	width:100%;
 	height:100%;
 	margin:0px;padding:0px;
-}.mycssclass tr:last-child td:last-child {
+}.osmclass tr:last-child td:last-child {
 	-moz-border-radius-bottomright:0px;
 	-webkit-border-bottom-right-radius:0px;
 	border-bottom-right-radius:0px;
 }
-.mycssclass table tr:first-child td:first-child {
+.osmclass table tr:first-child td:first-child {
 	-moz-border-radius-topleft:0px;
 	-webkit-border-top-left-radius:0px;
 	border-top-left-radius:0px;
 }
-.mycssclass table tr:first-child td:last-child {
+.osmclass table tr:first-child td:last-child {
 	-moz-border-radius-topright:0px;
 	-webkit-border-top-right-radius:0px;
 	border-top-right-radius:0px;
-}.mycssclass tr:last-child td:first-child{
+}.osmclass tr:last-child td:first-child{
 	-moz-border-radius-bottomleft:0px;
 	-webkit-border-bottom-left-radius:0px;
 	border-bottom-left-radius:0px;
-}.mycssclass tr:hover td{
+}.osmclass tr:hover td{
 	
 }
-.mycssclass tr:nth-child(odd){ background-color:#edeae8; }
-.mycssclass tr:nth-child(even)    { background-color:#ffffff; }.mycssclass td{
+.osmclass tr:nth-child(odd){ background-color:#e5e5e5; }
+.osmclass tr:nth-child(even)    { background-color:#ffffff; }.osmclass td{
 	vertical-align:middle;
 	
 	
-	border:1px solid #b5a8a8;
+	border:1px solid #000000;
 	border-width:0px 1px 1px 0px;
 	text-align:left;
-	padding:3px;
+	padding:7px;
 	font-size:10px;
 	font-family:Arial;
-	font-weight:bold;
+	font-weight:normal;
 	color:#000000;
-}.mycssclass tr:last-child td{
+}.osmclass tr:last-child td{
 	border-width:0px 1px 0px 0px;
-}.mycssclass tr td:last-child{
+}.osmclass tr td:last-child{
 	border-width:0px 0px 1px 0px;
-}.mycssclass tr:last-child td:last-child{
+}.osmclass tr:last-child td:last-child{
 	border-width:0px 0px 0px 0px;
 }
-.mycssclass tr:first-child td{
-		background:-o-linear-gradient(bottom, #605e5d 5%, #7f7f7f 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #605e5d), color-stop(1, #7f7f7f) );
-	background:-moz-linear-gradient( center top, #605e5d 5%, #7f7f7f 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#605e5d", endColorstr="#7f7f7f");	background: -o-linear-gradient(top,#605e5d,7f7f7f);
+.osmclass tr:first-child td{
+		background:-o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2) );
+	background:-moz-linear-gradient( center top, #cccccc 5%, #b2b2b2 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#b2b2b2");	background: -o-linear-gradient(top,#cccccc,b2b2b2);
 
-	background-color:#605e5d;
-	border:0px solid #b5a8a8;
+	background-color:#cccccc;
+	border:0px solid #000000;
 	text-align:center;
 	border-width:0px 0px 1px 1px;
 	font-size:14px;
 	font-family:Arial;
 	font-weight:bold;
-	color:#ffffff;
+	color:#000000;
 }
-.mycssclass tr:first-child:hover td{
-	background:-o-linear-gradient(bottom, #605e5d 5%, #7f7f7f 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #605e5d), color-stop(1, #7f7f7f) );
-	background:-moz-linear-gradient( center top, #605e5d 5%, #7f7f7f 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#605e5d", endColorstr="#7f7f7f");	background: -o-linear-gradient(top,#605e5d,7f7f7f);
+.osmclass tr:first-child:hover td{
+	background:-o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2) );
+	background:-moz-linear-gradient( center top, #cccccc 5%, #b2b2b2 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#b2b2b2");	background: -o-linear-gradient(top,#cccccc,b2b2b2);
 
-	background-color:#605e5d;
+	background-color:#cccccc;
 }
-.mycssclass tr:first-child td:first-child{
+.osmclass tr:first-child td:first-child{
 	border-width:0px 0px 1px 0px;
 }
-.mycssclass tr:first-child td:last-child{
+.osmclass tr:first-child td:last-child{
 	border-width:0px 0px 1px 1px;
 }

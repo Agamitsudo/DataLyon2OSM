@@ -29,30 +29,34 @@ $(document).ready(function() {
 		    }
 	   }
 
-	   var iframe_map = '<br><iframe width="600px" height="400px" frameBorder="0" src="https://umap.openstreetmap.fr/fr/map/datalyon2osm_72010?datalayers=' +  $("#setData option:selected").val() + '&scaleControl=false&miniMap=true&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=false&datalayersControl=false&onLoadPanel=undefined&captionBar=false"></iframe><p><a href="https://umap.openstreetmap.fr/fr/map/datalyon2osm_71781" target="_blank">Voir en plein écran</a></p>';
+	   var iframe_map = '<br><iframe width="600px" height="400px" frameBorder="0" src="https://umap.openstreetmap.fr/fr/map/datalyon2osm_72010?datalayers=' +  $("#setData option:selected").val() + '&scaleControl=false&miniMap=true&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=false&datalayersControl=false&onLoadPanel=undefined&captionBar=false"></iframe><p><a href="https://umap.openstreetmap.fr/fr/map/datalyon2osm_71781" target="_blank">Voir en plein écran</a></p>'; // &maxfeatures=30
 
 	   $('#iframe').empty();
+	   $('#iframetitle').empty();
+	   $('#iframetitle').append("<h2>1. Échantillon de trente éléments</h2>");	
  	   $('#iframe').append(iframe_map);
 	   $('#iframe').append('<p><a href="' + element.url + '" target="_blank">Descriptif du jeu de données</a></p>');
 
-	   $('#gpx').empty();	
-		
-           $.getJSON( element.sample, function(data) {
+	   $('#osm').empty();	
+	   $('#osmtitle').empty();
+	   $('#osmtitle').append("<h2>2. Génération d'un fichier .osm</h2>");
+           
+	   $.getJSON( element.sample, function(data) {
 
 		
 		   var table = $('<table></table>');
 		   var row = $('<tr></tr>');
-		   var rowdata = "<td>propriété json</td><td>exemple de valorisation</td><td>correspondance gpx</td>";
+		   var rowdata = "<td>propriété json</td><td>exemple de valorisation</td><td>correspondance osm</td><td>notes</td>";
 		   row.append(rowdata);
 		   table.append(row);
 
 		   $.each( data.features[0].properties, function(key, val) {
 		      	   row = $('<tr></tr>');		
-	    	      	   rowdata = "<td>" + key + "</td><td>" + val + "</td><td><input type='text' size='150' id='" + key + "'></td>";
+	    	      	   rowdata = "<td>" + key + "</td><td>" + val + "</td><td><input type='text' size='50' id='" + key + "'></td><td>...</td>";
 		           row.append(rowdata);		
 			   table.append(row);	
 		   }); 
-		   $('#gpx').append(table);
+		   $('#osm').append(table);
         });
     });
 });

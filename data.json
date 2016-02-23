@@ -9,31 +9,31 @@
         "id": 167278,
         "name": "Station Vélov",
         "url": "http://data.grandlyon.com/equipements/station-vflov-disponibilitfs-temps-rfel/",
-	"sample":"https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&maxfeatures=30&request=GetFeature&typename=jcd_jcdecaux.jcdvelov"
+	"sample":"https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=jcd_jcdecaux.jcdvelov"
     },
     {
         "id": 167300,
         "name": "Aménagement cyclable",
         "url": "http://data.grandlyon.com/equipements/station-vflov-disponibilitfs-temps-rfel/",
-	"sample":"https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&maxfeatures=30&request=GetFeature&typename=pvo_patrimoine_voirie.pvoamenagementcyclable"
+	"sample":"https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=pvo_patrimoine_voirie.pvoamenagementcyclable"
     },
     {
         "id": 167301,
         "name": "Tronçon de la trame viaire",
         "url": "http://data.grandlyon.com/localisation/tronfon-de-la-trame-viaire-voies-et-adresses/",
-	"sample":"https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&maxfeatures=30&request=GetFeature&typename=adr_voie_lieu.adraxevoie"
+	"sample":"https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=adr_voie_lieu.adraxevoie"
     },
     {
         "id": 167881,
         "name": "Point d'intérêt touristique",
         "url": "http://data.grandlyon.com/culture/point-dintfrft-touristique/",
-	"sample":"https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&maxfeatures=30&request=GetFeature&typename=sit_sitra.sittourisme"
+	"sample":"https://download.data.grandlyon.com/wfs/rdata?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=sit_sitra.sittourisme"
     },
     {
         "id": 167883,
         "name": "Commune du Grand Lyon",
         "url": "http://data.grandlyon.com/limitesadministratives/commune-du-grand-lyon-voies-et-adresses/",
-	"sample":"https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&maxfeatures=30&request=GetFeature&typename=adr_voie_lieu.adrcomgl"
+	"sample":"https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=adr_voie_lieu.adrcomgl"
     }
 ]
 
