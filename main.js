@@ -13,12 +13,22 @@ $(document).ready(function() {
 		    }));	
 		mydata.push(data[i]);		
 		}
-   	   });
+ 	});
+ 	
 	
 	//
 	// setData change
 	//
 	$("#setData").change(function() {
+
+	   if ($("#setData option:selected").val() == 0)
+	   {
+		   $('#iframe').empty();
+	           $('#iframetitle').empty();	
+		   $('#osm').empty();	
+		   $('#osmtitle').empty();	
+		   return;
+	   }
 
 	   var element;
 	   for(var i=0;i<mydata.length; i++){
