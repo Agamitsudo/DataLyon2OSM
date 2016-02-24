@@ -57,17 +57,37 @@ $(document).ready(function() {
 	   $('#osmtitle').empty();
 	   $('#osmtitle').append("<h1>2. Génération d'un fichier .osm</h1>");
            $('#osmtitle').append("<label>Générer le fichier .osm pour l'ensemble des données disponibles </label><button id='gen'>Générer</button><br/>");
-
+	   /*
+	   $('#osmtitle').append("<select id='maxfeatures' /><br><br>");
+	   $('#maxfeatures').hide().fadeIn(500);
+	   $('#maxfeatures').append($('<option>', {
+	    		value: "30",
+	    		text: "les 30 éléments"
+	   }));
+	   $('#maxfeatures').append($('<option>', {
+	    		value: "100",
+	    		text: "les 100 éléments"
+	   }));
+	   $('#maxfeatures').append($('<option>', {
+	    		value: "0",
+	    		text: "tous les éléments"
+	   }));
+	   */
 	   $('#gen').click(function() {
 
 		   $("#setData").attr("disabled", true); 
 		   $("#gen").attr("disabled", true); 
+		   $("#maxfeatures").attr("disabled", true);
 
 		   $('#iframe').empty();
 	           $('#iframetitle').empty();	
 		   $('#osm').empty();	
 
-		   $.getJSON( element.sample, function(data) {
+		   var myurlsample = element.sample;
+		   //if ($("#maxfeatures option:selected").val() != "0")
+		   //	myurlsample += "&maxfeatures=" + $("#maxfeatures option:selected").val();	
+		  
+		   $.getJSON( myurlsample, function(data) {
 			   
 		           /*	
 			   var table = $('<table></table>');
@@ -91,6 +111,9 @@ $(document).ready(function() {
 			   // "Polygon", "coordinates": [ [ [ 4.790407945472112, 45.869014690473236 ], [ 4.789913246646215, 45.869051348990531 ]
 			   var type = data.features[0].geometry.type;
 			   
+			   // 
+			   // Point
+			   //
 			   if (type == "Point")
 			   {
 				$.getJSON( element.sample, function(data) {
@@ -129,13 +152,66 @@ $(document).ready(function() {
 					  var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
 					  saveAs(blob, filename+".osm");
 					});
-	
-					
 			   	   });
 		           }
-			   else if (type == "LineString")
+			   // 
+			   // LineString
+			   //
+			   else if (type == "LineString" || type == "MultiLineString")
 			   {
+				$.getJSON( element.sample, function(data) {
+				
+					var cmpNode = 1;
+
+				        var input = '<?xml version="1.0" encoding="UTF-8"?>\r\n';
+				        input += '<osm version="0.6" upload="true" generator="JOSM">\r\n';
+				
+	 				for(var i=0;i<data.features.length; i++){// line after line
+
+
+						if (data.features[i].geometry.type == "LineString")
+						{
+							for(var j=0;j<data.features[i].geometry.coordinates.length; j++){
+							
+								input += '<node visible="true" id="-'  + cmpNode.toString() + '" lat="' + data.features[i].geometry.coordinates[j][0] + '" lon="' + data.features[i].geometry.coordinates[j][1] + '">\r\n';
+								input += "</node>\r\n";
+								cmpNode++;	
+							} 
+						}
+						else if (data.features[i].geometry.type == "MultiLineString")
+						{
+							for(var j=0;j<data.features[i].geometry.coordinates.length; j++){
+							
+								for(var z=0;z<data.features[i].geometry.coordinates[j].length; z++){
+								
+									input += '<node visible="true" id="-'  + cmpNode.toString() + '" lat="' + data.features[i].geometry.coordinates[j][z][0] + '" lon="' + data.features[i].geometry.coordinates[j][z][1] + '">\r\n';
+									input += "</node>\r\n";
+									cmpNode++;
+								}	
+							} 
+						}
+					}
+					input += '</osm>\r\n';
+					input = input.replace(/&/g, "et");
+
+				   	$("#setData").attr("disabled", false); 
+	  				$("#gen").attr("disabled", false); 
+					//$("#maxfeatures").attr("disabled", false);
+ 
+					$('#osm').append("<label>" + data.features.length.toString() + " éléments traités </label><button id='btn-save'>Téléchargez le fichier .osm</button><br/><br/>");
+					
+					$("#btn-save").click( function() {
+					
+					  var text = input;
+					  var filename = "output";
+					  var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+					  saveAs(blob, filename+".osm");
+					});
+			   	   });
 		           }
+			   // 
+			   // Polygon
+			   //
 			   else if (type == "Polygon")
 			   {
 		           }
