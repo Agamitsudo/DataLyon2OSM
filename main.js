@@ -24,7 +24,7 @@ $(document).ready(function() {
 	   if ($("#setData option:selected").val() == 0)
 	   {
 		   $('#iframe').empty();
-	           $('#iframetitle').empty();	
+	      $('#iframetitle').empty();	
 		   $('#osm').empty();	
 		   $('#osmtitle').empty();	
 		   return;
@@ -39,24 +39,18 @@ $(document).ready(function() {
 		    }
 	   }
 
-           //
-           // Sample 30 items
-           //
 	   var iframe_map = '<br><iframe width="600px" height="300px" frameBorder="0" src="https://umap.openstreetmap.fr/fr/map/datalyon2osm_72010?datalayers=' +  $("#setData option:selected").val() + '&scaleControl=false&miniMap=true&scrollWheelZoom=false&zoomControl=true&allowEdit=false&moreControl=false&datalayersControl=false&onLoadPanel=undefined&captionBar=false"></iframe>';
 	   $('#iframe').empty();
 	   $('#iframetitle').empty();
-	   $('#iframetitle').append("<h1>1. Échantillon de trente éléments</h1>");	
+	   $('#iframetitle').append("<h1>1. Affichage des trente premiers éléments</h1>");	
  	   $('#iframe').append(iframe_map);
 	   $('#iframe').append('<p><a href="' + element.url + '" target="_blank">Descriptif du jeu de données</a></p>');
 
-
-           //
-	   // Génération d'un fichier .osm
-           //
 	   $('#osm').empty();	
 	   $('#osmtitle').empty();
 	   $('#osmtitle').append("<h1>2. Génération d'un fichier .osm</h1>");
-           $('#osmtitle').append("<label>Générer le fichier .osm pour l'ensemble des données disponibles </label><button id='gen'>Générer</button><br/>");
+      $('#osmtitle').append("<label>Générer le fichier .osm pour l'ensemble des données disponibles </label><button id='gen'>Générer</button><br/>");
+	   
 	   /*
 	   $('#osmtitle').append("<select id='maxfeatures' /><br><br>");
 	   $('#maxfeatures').hide().fadeIn(500);
@@ -110,14 +104,12 @@ $(document).ready(function() {
 			   // "geometry": { "type": "LineString", "coordinates": [ [ 4.913027724848727, 45.670199714539663 ], 
 			   // "Polygon", "coordinates": [ [ [ 4.790407945472112, 45.869014690473236 ], [ 4.789913246646215, 45.869051348990531 ]
 			   var type = data.features[0].geometry.type;
-			   
-			   // 
-			   // Point
-			   //
-			   if (type == "Point")
-			   {
-				$.getJSON( element.sample, function(data) {
-				
+			   var promise = $.getJSON(element.sample);
+
+			   promise.done(function(data) {
+
+				if (type == "Point")
+	                        {
 					var cmp = 1;
 
 				        var input = '<?xml version="1.0" encoding="UTF-8"?>\r\n';
@@ -131,6 +123,7 @@ $(document).ready(function() {
 
 						$.each( data.features[i].properties, function(key, val) {
 							var myval = val.replace(/>/g, "+");
+							var myval = myval.replace(/&/g, "et");
 							var myval = myval.replace(/</g, "-");
 							var myval = myval.replace(/"/g, "");
 
@@ -143,7 +136,7 @@ $(document).ready(function() {
 
 				   	$("#setData").attr("disabled", false); 
 	  				$("#gen").attr("disabled", false); 
-					$('#osm').append("<label>" + data.features.length.toString() + " éléments traités </label><button id='btn-save'>Téléchargez le fichier .osm</button><br/><br/>");
+					$('#osmtitle').append("<label>" + data.features.length.toString() + " éléments traités </label><button id='btn-save'>Téléchargez le fichier .osm</button><br/><br/>");
 					
 					$("#btn-save").click( function() {
 					
@@ -152,24 +145,16 @@ $(document).ready(function() {
 					  var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
 					  saveAs(blob, filename+".osm");
 					});
-			   	   });
-		           }
-			   // 
-			   // LineString
-			   //
+			   }
 			   else if (type == "LineString" || type == "MultiLineString")
 			   {
-				$.getJSON( element.sample, function(data) {
-				
 					var cmpNode = 1;
 
 				        var input = '<?xml version="1.0" encoding="UTF-8"?>\r\n';
 				        input += '<osm version="0.6" upload="true" generator="JOSM">\r\n';
 				
 	 				for(var i=0;i<data.features.length; i++){// line after line
-						//
-						// "LineString"
-						//
+
 						if (data.features[i].geometry.type == "LineString")
 						{
 							// nodes
@@ -199,9 +184,6 @@ $(document).ready(function() {
 							});
 							input += '</way>';
 						}
-						//
-						// "MultiLineString"
-						//
 						else if (data.features[i].geometry.type == "MultiLineString")
 						{
 							for(var j=0;j<data.features[i].geometry.coordinates.length; j++){
@@ -227,6 +209,7 @@ $(document).ready(function() {
 								$.each( data.features[i].properties, function(key, val) {
 			
 									var myval = val.replace(/>/g, "+");
+									var myval = myval.replace(/&/g, "et");
 									var myval = myval.replace(/</g, "-");
 									var myval = myval.replace(/"/g, "");
 									input += '<tag k="' + key + '" v="' + myval + '"/>\r\n';
@@ -251,14 +234,12 @@ $(document).ready(function() {
 					  var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
 					  saveAs(blob, filename+".osm");
 					});
-			   	   });
 		           }
 			   // 
 			   // Polygon
 			   //
 			   else if (type == "Polygon")
 			   {
-				$.getJSON( element.sample, function(data) {
 				
 					var cmpNode = 1;
 
@@ -291,6 +272,7 @@ $(document).ready(function() {
 							$.each( data.features[i].properties, function(key, val) {
 			
 								var myval = val.replace(/>/g, "+");
+								var myval = myval.replace(/&/g, "et");
 								var myval = myval.replace(/</g, "-");
 								var myval = myval.replace(/"/g, "");
 								input += '<tag k="' + key + '" v="' + myval + '"/>\r\n';
@@ -313,8 +295,8 @@ $(document).ready(function() {
 					  var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
 					  saveAs(blob, filename+".osm");
 					});
-			   	});
 		        }
+});
 			   
 		});
 	  });

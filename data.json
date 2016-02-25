@@ -3,7 +3,7 @@
         "id": 0,
         "name": "Sélection d'un jeu de données",
         "url": "",
-	"sample":""
+	     "sample":""
     },
     {
         "id": 167278,
@@ -34,6 +34,17 @@
         "name": "Commune du Grand Lyon",
         "url": "http://data.grandlyon.com/limitesadministratives/commune-du-grand-lyon-voies-et-adresses/",
 	"sample":"https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=adr_voie_lieu.adrcomgl"
+    },
+    {
+        "id": 168788,
+        "name": "Parking",
+        "url": "http://data.grandlyon.com/equipements/parking/",
+	"sample":"https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=pvo_patrimoine_voirie.pvoparking"
+    },
+    {
+        "id": 168791,
+        "name": "Point coté au sol 3D  : 25 000 premiers éléments",
+        "url": "http://data.grandlyon.com/environnement/point-cotf-au-sol-3d-du-grand-lyon-altimftrie---fond-de-plan/",
+	"sample":"https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=fpc_fond_plan_communaut.fpcpointcotesol&maxfeatures=25000"
     }
 ]
-
