@@ -84,12 +84,6 @@
 	     "sample": "https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=epo_eau_potable.epobornefont"
     },
     {
-        "id": 168916,
-        "name": "Volume de toiture 3D",
-        "url": "http://data.grandlyon.com/localisation/volume-de-toiture-3d-du-bati-du-grand-lyon-fond-de-plan/",
-	     "sample": "https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=fpc_fond_plan_communaut.fpctoit"
-    },
-    {
         "id": 168918,
         "name": "Tronçon Web Criter",
         "url": "http://data.grandlyon.com/localisation/tronfon-web-criter/",

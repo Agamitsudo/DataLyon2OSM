@@ -1,5 +1,5 @@
-== DataLyon2OSM ==
-* Displays every geolocalized dataset (from Lyon administration) on Umap.
-* Provides a gpx converter for JOSM edition.
-* http://agamitsudo.ovh/DataLyon2OSM/
+DataLyon2OSM
+========
 
+A tool to transform geojson provided by [Grand Lyon](http://data.grandlyon.com/localisation/) to .osm file readable by JOSM tool.
+It is available [here](http://agamitsudo.ovh/DataLyon2OSM/).
