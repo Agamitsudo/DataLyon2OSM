@@ -66,34 +66,18 @@ $(document).ready(function() {
          //if ($("#maxfeatures option:selected").val() != "0")
          //	myurlsample += "&maxfeatures=" + $("#maxfeatures option:selected").val();	
          $.getJSON(myurlsample, function(data) {
-            /*	
-			   var table = $('<table></table>');
-			   var row = $('<tr></tr>');
-			   var rowdata = "<td>propriété json</td><td>exemple de valorisation</td><td>correspondance osm</td><td>notes</td>";
-			   row.append(rowdata);
-			   table.append(row);
 
-			   $.each( data.features[0].properties, function(key, val) {
-			      	   row = $('<tr></tr>');		
-		    	      	   rowdata = "<td>" + key + "</td><td>" + val + "</td><td><input type='text' size='50' id='" + key + "'></td><td>...</td>";
-				   row.append(rowdata);		
-				   table.append(row);	
-			   }); 
-			   $('#osm').append(table);
-			   */
-            // Point / LineString / Polygon ?
-            // "geometry": { "type": "Point", "coordinates": [ 4.845192520164354, 45.750263873691459 ] } },
-            // "geometry": { "type": "LineString", "coordinates": [ [ 4.913027724848727, 45.670199714539663 ], 
-            // "Polygon", "coordinates": [ [ [ 4.790407945472112, 45.869014690473236 ], [ 4.789913246646215, 45.869051348990531 ]
             var type = data.features[0].geometry.type;
             var promise = $.getJSON(element.sample);
             promise.done(function(data) {
                if (type == "Point") {
                   var cmp = 1;
                   var input = '<?xml version="1.0" encoding="UTF-8"?>\r\n';
-                  input += '<osm version="0.6" upload="true" generator="JOSM">\r\n';
+                  input += '<osm version="0.6" upload="true" generator="DataLyon2OSM">\r\n';
+                  input += '<bounds minlat="45.5" minlon="4.69" maxlat="45.94" maxlon="5.1"/>\r\n';
+                     
                   for (var i = 0; i < data.features.length; i++) {
-                     input += '<node action="modify" visible="true" id="-' + cmp.toString() + '" lat="' + data.features[i].geometry.coordinates[0] + '" lon="' + data.features[i].geometry.coordinates[1] + '">\r\n';
+                     input += '<node action="modify" visible="true" id="-' + cmp.toString() + '" lat="' + data.features[i].geometry.coordinates[1] + '" lon="' + data.features[i].geometry.coordinates[0] + '">\r\n';
                      cmp++;
                      $.each(data.features[i].properties, function(key, val) {
                         var myval = val.replace(/>/g, "+");
@@ -126,7 +110,7 @@ $(document).ready(function() {
                      if (data.features[i].geometry.type == "LineString") {
                         // nodes
                         for (var j = 0; j < data.features[i].geometry.coordinates.length; j++) {
-                           input += '<node visible="true" id="-' + cmpNode.toString() + '" lat="' + data.features[i].geometry.coordinates[j][0] + '" lon="' + data.features[i].geometry.coordinates[j][1] + '">\r\n';
+                           input += '<node visible="true" id="-' + cmpNode.toString() + '" lat="' + data.features[i].geometry.coordinates[j][1] + '" lon="' + data.features[i].geometry.coordinates[j][0] + '">\r\n';
                            input += "</node>\r\n";
                            cmpNode++;
                         }
@@ -150,7 +134,7 @@ $(document).ready(function() {
                         for (var j = 0; j < data.features[i].geometry.coordinates.length; j++) {
                            // nodes
                            for (var z = 0; z < data.features[i].geometry.coordinates[j].length; z++) {
-                              input += '<node visible="true" id="-' + cmpNode.toString() + '" lat="' + data.features[i].geometry.coordinates[j][z][0] + '" lon="' + data.features[i].geometry.coordinates[j][z][1] + '">\r\n';
+                              input += '<node visible="true" id="-' + cmpNode.toString() + '" lat="' + data.features[i].geometry.coordinates[j][z][1] + '" lon="' + data.features[i].geometry.coordinates[j][z][0] + '">\r\n';
                               input += "</node>\r\n";
                               cmpNode++;
                            }
@@ -192,11 +176,13 @@ $(document).ready(function() {
                   var cmpNode = 1;
                   var input = '<?xml version="1.0" encoding="UTF-8"?>\r\n';
                   input += '<osm version="0.6" upload="true" generator="JOSM">\r\n';
+                  input += '<bounds minlat="45.5" minlon="4.69" maxlat="45.94" maxlon="5.1"/>\r\n';
+                  
                   for (var i = 0; i < data.features.length; i++) { // line after line
                      for (var j = 0; j < data.features[i].geometry.coordinates.length; j++) {
                         // nodes
                         for (var z = 0; z < data.features[i].geometry.coordinates[j].length; z++) {
-                           input += '<node visible="true" id="-' + cmpNode.toString() + '" lat="' + data.features[i].geometry.coordinates[j][z][0] + '" lon="' + data.features[i].geometry.coordinates[j][z][1] + '">\r\n';
+                           input += '<node visible="true" id="-' + cmpNode.toString() + '" lat="' + data.features[i].geometry.coordinates[j][z][1] + '" lon="' + data.features[i].geometry.coordinates[j][z][0] + '">\r\n';
                            input += "</node>\r\n";
                            cmpNode++;
                         }
@@ -237,13 +223,14 @@ $(document).ready(function() {
                   var cmpNode = 1;
                   var input = '<?xml version="1.0" encoding="UTF-8"?>\r\n';
                   input += '<osm version="0.6" upload="true" generator="JOSM">\r\n';
+                  
                   for (var i = 0; i < data.features.length; i++) { // line after line
                      for (var j = 0; j < data.features[i].geometry.coordinates.length; j++) {
                         for (var z = 0; z < data.features[i].geometry.coordinates[j].length; z++) {
                            var minNodeId = cmpNode;
                            var maxNodeId = cmpNode;
                            for (var k = 0; k < data.features[i].geometry.coordinates[j][z].length; k++) {
-                              input += '<node visible="true" id="-' + cmpNode.toString() + '" lat="' + data.features[i].geometry.coordinates[j][z][k][0] + '" lon="' + data.features[i].geometry.coordinates[j][z][k][1] + '">\r\n';
+                              input += '<node visible="true" id="-' + cmpNode.toString() + '" lat="' + data.features[i].geometry.coordinates[j][z][k][1] + '" lon="' + data.features[i].geometry.coordinates[j][z][k][0] + '">\r\n';
                               input += "</node>\r\n";
                               maxNodeId = cmpNode;
                               cmpNode++;
