@@ -167,28 +167,72 @@ $(document).ready(function() {
 				        input += '<osm version="0.6" upload="true" generator="JOSM">\r\n';
 				
 	 				for(var i=0;i<data.features.length; i++){// line after line
-
-
+						//
+						// "LineString"
+						//
 						if (data.features[i].geometry.type == "LineString")
 						{
+							// nodes
 							for(var j=0;j<data.features[i].geometry.coordinates.length; j++){
 							
 								input += '<node visible="true" id="-'  + cmpNode.toString() + '" lat="' + data.features[i].geometry.coordinates[j][0] + '" lon="' + data.features[i].geometry.coordinates[j][1] + '">\r\n';
 								input += "</node>\r\n";
 								cmpNode++;	
 							} 
+							// way
+							input += '<way visible="true" id="-'  + cmpNode.toString() + '">\r\n';
+								
+							var maxNodeId = cmpNode - 1;					
+							var minNodeId = cmpNode - data.features[i].geometry.coordinates.length;
+
+							for(var u=minNodeId;u<=maxNodeId; u++){
+								input += "<nd ref='-" + u + "' />\r\n";
+							}
+		
+							// tags
+							$.each( data.features[i].properties, function(key, val) {
+		
+								var myval = val.replace(/>/g, "+");
+								var myval = myval.replace(/</g, "-");
+								var myval = myval.replace(/"/g, "");
+								input += '<tag k="' + key + '" v="' + myval + '"/>\r\n';
+							});
+							input += '</way>';
 						}
+						//
+						// "MultiLineString"
+						//
 						else if (data.features[i].geometry.type == "MultiLineString")
 						{
 							for(var j=0;j<data.features[i].geometry.coordinates.length; j++){
 							
+								// nodes
 								for(var z=0;z<data.features[i].geometry.coordinates[j].length; z++){
 								
 									input += '<node visible="true" id="-'  + cmpNode.toString() + '" lat="' + data.features[i].geometry.coordinates[j][z][0] + '" lon="' + data.features[i].geometry.coordinates[j][z][1] + '">\r\n';
 									input += "</node>\r\n";
 									cmpNode++;
-								}	
-							} 
+								}
+								// way
+								input += '<way visible="true" id="-'  + cmpNode.toString() + '">\r\n';
+								
+								var maxNodeId = cmpNode - 1;					
+								var minNodeId = cmpNode - data.features[i].geometry.coordinates[j].length;
+
+								for(var u=minNodeId;u<=maxNodeId; u++){
+									input += "<nd ref='-" + u + "' />\r\n";
+								}
+		
+								// tags
+								$.each( data.features[i].properties, function(key, val) {
+			
+									var myval = val.replace(/>/g, "+");
+									var myval = myval.replace(/</g, "-");
+									var myval = myval.replace(/"/g, "");
+									input += '<tag k="' + key + '" v="' + myval + '"/>\r\n';
+								});
+								input += '</way>';
+							}
 						}
 					}
 					input += '</osm>\r\n';
