@@ -182,7 +182,7 @@ $(document).ready(function() {
 								var myval = myval.replace(/"/g, "");
 								input += '<tag k="' + key + '" v="' + myval + '"/>\r\n';
 							});
-							input += '</way>';
+							input += '</way>\r\n';
 						}
 						else if (data.features[i].geometry.type == "MultiLineString")
 						{
@@ -214,7 +214,7 @@ $(document).ready(function() {
 									var myval = myval.replace(/"/g, "");
 									input += '<tag k="' + key + '" v="' + myval + '"/>\r\n';
 								});
-								input += '</way>';
+								input += '</way>\r\n';
 							}
 						}
 					}
@@ -235,10 +235,7 @@ $(document).ready(function() {
 					  saveAs(blob, filename+".osm");
 					});
 		           }
-			   // 
-			   // Polygon
-			   //
-			   else if (type == "Polygon")
+      	   else if (type == "Polygon")
 			   {
 				
 					var cmpNode = 1;
@@ -277,7 +274,7 @@ $(document).ready(function() {
 								var myval = myval.replace(/"/g, "");
 								input += '<tag k="' + key + '" v="' + myval + '"/>\r\n';
 							});
-							input += '</way>';
+							input += '</way>\r\n';
 						}
 					}
 					input += '</osm>\r\n';
@@ -296,8 +293,72 @@ $(document).ready(function() {
 					  saveAs(blob, filename+".osm");
 					});
 		        }
-});
-			   
+              else if (type == "MultiPolygon")
+			     {
+					   var cmpNode = 1;
+
+				      var input = '<?xml version="1.0" encoding="UTF-8"?>\r\n';
+				      input += '<osm version="0.6" upload="true" generator="JOSM">\r\n';
+				
+	    				for(var i=0;i<data.features.length; i++){// line after line
+
+						   for(var j=0;j<data.features[i].geometry.coordinates.length; j++){
+							
+
+							   for(var z=0;z<data.features[i].geometry.coordinates[j].length; z++){
+
+                           var minNodeId = cmpNode;
+                           var maxNodeId = cmpNode;
+                           
+                           for(var k=0;k<data.features[i].geometry.coordinates[j][z].length; k++){
+			
+   								   input += '<node visible="true" id="-'  + cmpNode.toString() + '" lat="' + data.features[i].geometry.coordinates[j][z][k][0] + '" lon="' + data.features[i].geometry.coordinates[j][z][k][1] + '">\r\n';
+   								   input += "</node>\r\n";
+   								   maxNodeId = cmpNode;   
+   								   cmpNode++;
+   							   }
+   							   
+							      // way
+							      input += '<way visible="true" id="-'  + cmpNode.toString() + '">\r\n';
+								                               
+                           cmpNode++;
+                           
+							      for(var u=minNodeId;u<maxNodeId; u++){
+								      input += "<nd ref='-" + u + "' />\r\n";
+							      }
+							      input += "<nd ref='-" + minNodeId + "' />\r\n";// we loop on the first point.
+
+							      // tags
+							      $.each( data.features[i].properties, function(key, val) {
+			
+								      var myval = val.replace(/>/g, "+");
+								      var myval = myval.replace(/&/g, "et");
+								      var myval = myval.replace(/</g, "-");
+								      var myval = myval.replace(/"/g, "");
+								      input += '<tag k="' + key + '" v="' + myval + '"/>\r\n';
+							      });
+							      input += '</way>\r\n';   							   
+   							   
+						      }
+					      }
+					   }
+					   input += '</osm>\r\n';
+					   input = input.replace(/&/g, "et");
+
+				      $("#setData").attr("disabled", false); 
+	        			$("#gen").attr("disabled", false); 
+	       
+					   $('#osm').append("<label>" + data.features.length.toString() + " éléments traités </label><button id='btn-save'>Téléchargez le fichier .osm</button><br/><br/>");
+					
+					   $("#btn-save").click( function() {
+				
+					   var text = input;
+					   var filename = "output";
+					   var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+					        saveAs(blob, filename+".osm");
+					   });	
+				   }	// else if (type == "MultiPolygon")        
+         });
 		});
 	  });
     });

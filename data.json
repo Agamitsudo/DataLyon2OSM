@@ -46,5 +46,35 @@
         "name": "Point coté au sol 3D  : 25 000 premiers éléments",
         "url": "http://data.grandlyon.com/environnement/point-cotf-au-sol-3d-du-grand-lyon-altimftrie---fond-de-plan/",
 	"sample":"https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=fpc_fond_plan_communaut.fpcpointcotesol&maxfeatures=25000"
+    },
+    {
+        "id": 168862,
+        "name": "Point de canevas topographique",
+        "url": "http://data.grandlyon.com/equipements/point-de-canevas-topographique-du-grand-lyon/",
+	"sample":"https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=top_plan_canevas.topcanevas"
+    },
+    {
+        "id": 168863,
+        "name": "Lieu surfacique",
+        "url": "http://data.grandlyon.com/equipements/lieu-surfacique-du-grand-lyon-lieux-et-fdifices/",
+	"sample":"https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=adr_voie_lieu.adrlieusurf"
+    },
+    {
+        "id": 168865,
+        "name": "Station autoportage",
+        "url": "http://data.grandlyon.com/equipements/station-autopartage/",
+	"sample":"https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=pvo_patrimoine_voirie.pvostationautopartage"
+    },
+    {
+        "id": 168868,
+        "name": "Arrondissement de Lyon",
+        "url": "http://data.grandlyon.com/limitesadministratives/arrondissement-de-lyon-voies-et-adresses/",
+	"sample":"https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=adr_voie_lieu.adrarrond"
+    },
+    {
+        "id": 168870,
+        "name": "Bâtiment en 3D",
+        "url": "http://data.grandlyon.com/localisation/bftiment-3d-en-construction-bati---fond-de-plan/",
+	"sample":"https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=fpc_fond_plan_communaut.fpcbaticonstruction"
     }
 ]
