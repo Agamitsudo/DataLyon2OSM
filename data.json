@@ -43,7 +43,7 @@
     },
     {
         "id": 168791,
-        "name": "Point coté au sol 3D  : 25 000 premiers éléments",
+        "name": "Point coté au sol 3D  : limité aux 25 000 premiers éléments",
         "url": "http://data.grandlyon.com/environnement/point-cotf-au-sol-3d-du-grand-lyon-altimftrie---fond-de-plan/",
 	"sample":"https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=fpc_fond_plan_communaut.fpcpointcotesol&maxfeatures=25000"
     },
@@ -76,5 +76,65 @@
         "name": "Bâtiment en 3D",
         "url": "http://data.grandlyon.com/localisation/bftiment-3d-en-construction-bati---fond-de-plan/",
 	"sample":"https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=fpc_fond_plan_communaut.fpcbaticonstruction"
-    }
+    },
+    {
+        "id": 168915,
+        "name": "Fontaine",
+        "url": "http://data.grandlyon.com/environnement/fontaine-deau-potable-du-grand-lyon/",
+	     "sample": "https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=epo_eau_potable.epobornefont"
+    },
+    {
+        "id": 168916,
+        "name": "Volume de toiture 3D",
+        "url": "http://data.grandlyon.com/localisation/volume-de-toiture-3d-du-bati-du-grand-lyon-fond-de-plan/",
+	     "sample": "https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=fpc_fond_plan_communaut.fpctoit"
+    },
+    {
+        "id": 168918,
+        "name": "Tronçon Web Criter",
+        "url": "http://data.grandlyon.com/localisation/tronfon-web-criter/",
+	     "sample": "https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=pvo_patrimoine_voirie.pvotronconwebcriter"
+    },
+    {
+        "id": 168919,
+        "name": "Lieu-dit",
+        "url": "http://data.grandlyon.com/localisation/lieudit-du-grand-lyon-voies-et-adresses/",
+	     "sample": "https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=adr_voie_lieu.adrlieudit"
+    },
+    {
+        "id": 168920,
+        "name": "Pont",
+        "url": "http://data.grandlyon.com/localisation/pont-habillage---fond-de-plan/",
+	     "sample": "https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=fpc_fond_plan_communaut.fpcpont"
+    },
+    {
+        "id": 168921,
+        "name": "Arbre d'alignement",
+        "url": "http://data.grandlyon.com/environnement/arbre-dalignement/",
+	     "sample": "https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=abr_arbres_alignement.abrarbre"
+    },
+    {
+        "id": 168922,
+        "name": "Aire d'accueil des gens du voyage",
+        "url": "http://data.grandlyon.com/citoyennete/aires-daccueil-des-gens-du-voyage/",
+	     "sample": "https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=evg_esp_veg.evgaireaccueil"
+    },
+    {
+        "id": 168923,
+        "name": "Silo verre",
+        "url": "http://data.grandlyon.com/environnement/silos-verre/",
+	     "sample": "https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=gic_collecte.gicsiloverre"
+    },
+    {
+        "id": 168924,
+        "name": "Toilette publique",
+        "url": "http://data.grandlyon.com/equipements/toilettes-publiques-sur-le-territoire-du-grand-lyon/",
+	     "sample": "https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=gin_nettoiement.gintoilettepublique"
+    },
+    {
+        "id": 168925,
+        "name": "Emplacement personnes à mobilité réduite de la ville de Lyon",
+        "url": "http://data.grandlyon.com/accessibilite/emplacement-personnes-f-mobilitf-rfduite-de-la-ville-de-lyon/",
+	     "sample": "https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&VERSION=2.0.0&outputformat=GEOJSON&request=GetFeature&typename=vdl_deplacements.emplacement_pmr"
+    }              
 ]
