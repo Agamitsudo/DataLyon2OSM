@@ -1,6 +1,10 @@
 $(document).ready(function() {
-   $('#main').append("<select id='setData' /><br><br>");
+   $('#main').append("<select id='setData' />");
+   $('#main').append("<br><br>");
+   $('#main').append('<a href="http://agamitsudo.ovh/DataLyon2OSM/Help-fr/" target="_blank">Aide</a>');
+
    $('#main').hide().fadeIn(500);
+
    var mydata = new Array();
    $.getJSON("http://agamitsudo.ovh/DataLyon2OSM/data.json", function(data) {
       for (var i = 0; i < data.length; i++) {
